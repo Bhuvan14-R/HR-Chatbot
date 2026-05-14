@@ -1,8 +1,6 @@
 const inputField = document.getElementById("userInput");
 const chatBox = document.getElementById("chatBox");
 
-document.getElementById("initialTime").innerText = getTime();
-
 inputField.addEventListener("keypress", function (e) {
 
     if (e.key === "Enter") {
@@ -10,28 +8,21 @@ inputField.addEventListener("keypress", function (e) {
     }
 });
 
-function getTime() {
-
-    const now = new Date();
-
-    return now.toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-}
-
 function appendMessage(message, type) {
 
-    const msgDiv = document.createElement("div");
+    const div = document.createElement("div");
 
-    msgDiv.classList.add("message", type);
+    div.classList.add("message", type);
 
-    msgDiv.innerHTML = `
-        <div class="message-content">${message}</div>
-        <span class="time">${getTime()}</span>
+    div.innerHTML = `
+    
+        <div class="message-content">
+            ${message}
+        </div>
+    
     `;
 
-    chatBox.appendChild(msgDiv);
+    chatBox.appendChild(div);
 
     chatBox.scrollTop = chatBox.scrollHeight;
 }
@@ -46,22 +37,21 @@ function sendMessage() {
 
     inputField.value = "";
 
-    // Typing animation
-    const typingDiv = document.createElement("div");
+    const typing = document.createElement("div");
 
-    typingDiv.classList.add("message", "bot");
+    typing.classList.add("message", "bot");
 
-    typingDiv.id = "typing";
+    typing.id = "typing";
 
-    typingDiv.innerHTML = `
-        <div class="message-content typing">
+    typing.innerHTML = `
+    
+        <div class="message-content">
             Typing...
         </div>
+    
     `;
 
-    chatBox.appendChild(typingDiv);
-
-    chatBox.scrollTop = chatBox.scrollHeight;
+    chatBox.appendChild(typing);
 
     fetch("chatbot.php", {
 
@@ -74,12 +64,12 @@ function sendMessage() {
         body: "message=" + encodeURIComponent(message)
     })
 
-        .then(response => response.text())
+    .then(response => response.text())
 
-        .then(data => {
+    .then(data => {
 
-            document.getElementById("typing").remove();
+        document.getElementById("typing").remove();
 
-            appendMessage(data, "bot");
-        });
+        appendMessage(data, "bot");
+    });
 }

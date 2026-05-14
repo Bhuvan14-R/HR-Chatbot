@@ -1,51 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud HR Policy Chatbot</title>
 
-    <link rel="stylesheet" href="style.css">
+    <title>HR Management Portal</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#eaf1ff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+
+            background:white;
+            padding:50px;
+            border-radius:20px;
+            width:450px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            margin-bottom:20px;
+        }
+
+        p{
+            color:#555;
+            margin-bottom:40px;
+        }
+
+        a{
+
+            display:block;
+            margin-bottom:20px;
+            padding:16px;
+            border-radius:12px;
+            text-decoration:none;
+            color:white;
+            font-size:18px;
+        }
+
+        .admin{
+            background:#2563eb;
+        }
+
+        .employee{
+            background:#16a34a;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <div class="chat-container">
+<div class="container">
 
-        <div class="chat-header">
-            <div>
-                <h2>HR Policy Assistant</h2>
-                <p>Cloud-Based Employee Support Chatbot</p>
-            </div>
-        </div>
+    <h1>HR Management Portal</h1>
 
-        <div class="chat-box" id="chatBox">
+    <p>Select Login Type</p>
 
-            <div class="message bot">
-                <div class="message-content">
-                    Hello 👋<br>
-                    I can help you with HR policies, leave rules, work timings, salary info and more.
-                </div>
-                <span class="time" id="initialTime"></span>
-            </div>
+    <a href="admin_login.php"
+       class="admin">
 
-        </div>
+       Admin Login
 
-        <div class="input-area">
-            <input type="text" id="userInput" placeholder="Ask something about company policies...">
+    </a>
 
-            <button onclick="sendMessage()">
-                Send
-            </button>
-        </div>
+    <a href="employee_login.php"
+       class="employee">
 
-    </div>
+       Employee Login
 
-    <script src="script.js"></script>
+    </a>
+
+</div>
 
 </body>
 </html>
