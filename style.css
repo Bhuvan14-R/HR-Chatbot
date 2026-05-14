@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    width: 430px;
+    height: 720px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    background: #2563eb;
+    color: white;
+    padding: 20px;
+}
+
+.chat-header h2 {
+    font-size: 22px;
+}
+
+.chat-header p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8fafc;
+    scroll-behavior: smooth;
+}
+
+.message {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease;
+}
+
+.message-content {
+    padding: 14px 16px;
+    border-radius: 18px;
+    max-width: 80%;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.bot .message-content {
+    background: #e2e8f0;
+    color: #111827;
+    border-bottom-left-radius: 5px;
+}
+
+.user {
+    align-items: flex-end;
+}
+
+.user .message-content {
+    background: #2563eb;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.time {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 4px;
+    padding: 0 5px;
+}
+
+.input-area {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #e5e7eb;
+    background: white;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-area input:focus {
+    border-color: #2563eb;
+}
+
+.input-area button {
+    margin-left: 10px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.input-area button:hover {
+    background: #1d4ed8;
+}
+
+.typing {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 500px) {
+
+    .chat-container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+}
